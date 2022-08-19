@@ -1,0 +1,20 @@
+$baseColor: #242424;
+
+$colors: (
+  "primary": #28BEED,
+  "secundary": #2E70AC,
+  "tertiary": #F89604,
+  "lightPrimary": #6BD8FB,
+  "gray": #717171,
+  "white": #fff,
+  "black": #263144,
+  "warning": #e7701b,
+  "danger": #f20,
+);
+
+$shadowBox: 4px 3px 2px 0px #a0a0a0;
+
+@mixin gradient-bg {
+  background: rgb(71, 35, 90);
+  background: linear-gradient(90deg, rgba(71, 35, 90, 1) 0%, rgba(46, 36, 91, 1) 100%, rgba(46, 36, 91, 1) 100%);
+}

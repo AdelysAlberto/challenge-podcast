@@ -1,0 +1,6 @@
+@use 'src/styles/variables' as *;
+
+.container {
+  border-bottom: 1px solid map-get($map: $colors, $key: 'primary');
+  padding: 0.5rem;
+}
