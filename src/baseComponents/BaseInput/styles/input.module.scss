@@ -1,0 +1,14 @@
+@use 'src/styles/variables' as *;
+
+
+input.input {
+  border: 1px solid map-get($map: $colors, $key: 'primary');
+  min-width: 20rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: map-get($map: $colors, $key: 'gray');
+
+  &::placeholder {
+    color: map-get($map: $colors, $key: 'gray');
+  }
+}
