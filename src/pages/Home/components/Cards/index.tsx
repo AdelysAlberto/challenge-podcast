@@ -1,18 +1,27 @@
 import { FC } from 'react';
 import styles from './styles/card.module.scss';
+import { cardAdapter } from '../../adapters/data.adapters';
+import { ICard, IPodCastList } from '../../interfaces';
 
-interface ICard {
-  title?: string
-}
 
-const Cards: FC<{ card: ICard }> = ({ card }) => {
+const Cards: FC<{ card: IPodCastList }> = ({ card }) => {
+
+  const dataAdapter: ICard = cardAdapter(card);
+
   return (
     <div className={styles.card}>
       <div className={styles.card__photo}>
-        Foto
+        <img src={dataAdapter.image} alt={dataAdapter.title} />
       </div>
       <div className={styles.card__title}>
-        {card.title}
+        <span>
+          {dataAdapter.title}
+        </span>
+
+        <span className={styles.card__author}>
+          Author: {dataAdapter.author}
+        </span>
+
       </div>
     </div>
 

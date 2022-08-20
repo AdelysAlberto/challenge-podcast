@@ -6,7 +6,7 @@ import styles from './styles/input.module.scss';
 const BaseInput: FC<IInput> = ({
   type = "text",
   placerholder = "",
-  onChange,
+  onChange = () => '',
   value
 }) => {
   return (
@@ -15,7 +15,7 @@ const BaseInput: FC<IInput> = ({
         className={styles.input}
         type={type}
         placeholder={placerholder}
-        onChange={onChange}
+        onChange={(e) => onChange(e.target.value)}
         value={value}
       />
     </Fragment>

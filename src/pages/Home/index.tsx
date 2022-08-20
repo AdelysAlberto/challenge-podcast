@@ -1,42 +1,27 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import LayoutDefault from '../../adapters/layouts/default/index';
-import BaseInput from '../../baseComponents/BaseInput';
-import Cards from './components/Cards';
-
-import styles from './styles/home.module.scss';
+import Container from './Container';
+import { useGetPodCastList } from './hooks/usePodCast';
 
 const Home: FC = () => {
-  interface ICard {
-    title: string
+
+  const [filters, setFilters] = useState('');
+  const { data, isLoading, error } = useGetPodCastList(filters);
+
+  const onChange = (value: string) => {
+    setFilters(value)
   }
 
-  const array: ICard[] = [
-    { title: "Card One" },
-    { title: "Card Two" },
-    { title: "Card Threee" },
-    { title: "Card Four" },
-    { title: "Card Six" },
-    { title: "Card Seven" },
-    { title: "Card Eight" },
-  ];
-
   return (
-    <LayoutDefault >
-      <div className='container'>
-        <div className={styles.search}>
-          <BaseInput placerholder='Filter podcast...' />
-        </div>
-        <div className={styles.cards}>
-          {
-            array.map((card, key) => (
-              <Cards key={key} card={card} />
-            ))
-          }
-
-        </div>
-      </div>
+    <LayoutDefault isLoading={isLoading}>
+      {error ? (
+        <div>
+          Error while get the Podcast List
+        </div>)
+        :
+        (<Container cards={data} onChange={onChange} />)
+      }
     </LayoutDefault>
-
   );
 }
 

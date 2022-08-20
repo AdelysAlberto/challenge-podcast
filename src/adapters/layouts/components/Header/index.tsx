@@ -2,10 +2,15 @@ import { FC } from 'react'
 
 import styles from './header.module.scss';
 
-const Header: FC = () => {
+const Header: FC<{ isLoading?: boolean }> = ({ isLoading = false }) => {
   return (
     <div className={`${styles.container}`}>
-      Podcaster
+      <span>Podcaster</span>
+
+      {isLoading && (
+        <div className={styles.spin}></div>
+      )}
+
     </div>
 
   );
