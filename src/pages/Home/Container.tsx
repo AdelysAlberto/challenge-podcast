@@ -4,8 +4,8 @@ import BaseInput from '../../baseComponents/BaseInput';
 import Cards from './components/Cards';
 
 import styles from './styles/home.module.scss';
-import { IPodCastList } from './interfaces/index';
 
+import { IPodCastList } from './interfaces/index';
 const Container: FC<{ cards: IPodCastList[], onChange?: any }> = ({ cards, onChange }) => {
 
   return (

@@ -17,6 +17,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
+
       cacheTime: configEnv.cache_time, // 24 hours
     }
   }

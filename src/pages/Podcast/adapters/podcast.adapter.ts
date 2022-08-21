@@ -29,15 +29,20 @@ const parsePodcastDetail = (payload: any) => {
     episodes: []
   };
 
+
+
   // eslint-disable-next-line array-callback-return
   payload.elements[0].elements[0].elements.map((pod: any) => {
-    if (pod.name === 'title') {
-      podcast['title'] = pod.elements[0].text
-    }
 
-    if (pod.name === 'description') {
-      podcast['description'] = pod.elements[0].text
-    }
+    pod.name === 'title' && (podcast['title'] = pod.elements[0].text);
+
+    pod.name === 'itunes:author' && (podcast['author'] = pod.elements[0].text);
+
+    pod.name === "image" && (podcast['image'] = pod.elements[0].elements[0].text)
+
+    pod.name === 'description' && (podcast['description'] = pod.elements[0].text)
+
+    pod.name === 'itunes:subtitle' && (podcast['subtitle'] = pod.elements[0].text)
 
     if (pod.type === 'element' && pod.name === 'item') {
       podcast['episodes'] = [

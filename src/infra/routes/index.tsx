@@ -2,6 +2,7 @@
 import {
   Routes,
   Route,
+  Outlet,
 } from "react-router-dom";
 import '../../styles/globals.scss';
 
@@ -14,7 +15,8 @@ const App = () => {
 
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/podcast/:id" element={<Podcast />}  >
+      <Route path="/podcast/:id" element={<Outlet />}>
+        <Route index element={<Podcast />} />
         <Route path="episode/:param" element={<Episode />} />
       </Route>
     </Routes>
