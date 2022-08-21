@@ -1,7 +1,7 @@
 import request from '../../../infra/request/index';
 import configEnv from '../../../utilities/config.utility';
 
-const getPodCast = async () => {
+const getPodcast = async () => {
 
   const { data, statusText } = await request.get(configEnv.podcast_100);
   if (statusText) {
@@ -11,5 +11,5 @@ const getPodCast = async () => {
 }
 
 export {
-  getPodCast
+  getPodcast
 }

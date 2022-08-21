@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 //react query
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import App from './pages';
+import App from './infra/routes';
 import configEnv from './utilities/config.utility';
 
 const container = document.getElementById('root');

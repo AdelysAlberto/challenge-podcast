@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query';
-import { getPodCast } from '../services/api.service';
+import { getPodcast } from '../services/home.service';
 import { IPodCastList } from '../interfaces/index';
 
 
-export const useGetPodCastList = (query: string) => {
+export const useGetPodcastList = (query: string) => {
   return useQuery(
     ['podcasts'],
-    () => getPodCast(),
+    () => getPodcast(),
     {
       select: (podcasts) => {
         return podcasts.feed.entry.filter((podcast: IPodCastList) => {

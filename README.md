@@ -1,4 +1,6 @@
 # Getting Started 
+Figma Preview : 
+[Figma Mockup](https://www.figma.com/file/sXI0I2XZaDtfcHmUze2e82/Challenge-PODCAST?node-id=0%3A1)
 
 ## Available Scripts
 In the project directory, you can run:

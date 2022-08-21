@@ -1,12 +1,12 @@
 import { FC, useState } from 'react'
 import LayoutDefault from '../../adapters/layouts/default/index';
 import Container from './Container';
-import { useGetPodCastList } from './hooks/usePodCast';
+import { useGetPodcastList } from './hooks/usePodCast';
 
 const Home: FC = () => {
 
   const [filters, setFilters] = useState('');
-  const { data, isLoading, error } = useGetPodCastList(filters);
+  const { data, isLoading, error } = useGetPodcastList(filters);
 
   const onChange = (value: string) => {
     setFilters(value)
