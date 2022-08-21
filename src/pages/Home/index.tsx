@@ -1,20 +1,27 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import LayoutDefault from '../../adapters/layouts/default/index';
-import Cards from './Cards';
-
-import styles from './home.module.scss';
+import Container from './Container';
+import { useGetPodcastList } from './hooks/usePodCast';
 
 const Home: FC = () => {
-  return (
-    <LayoutDefault >
-      <div className='container'>
-        <div className={styles.search}>
-          <input type={'text'} placeholder="Filter podcast..." />
-        </div>
-        <Cards />
-      </div>
-    </LayoutDefault>
 
+  const [filters, setFilters] = useState('');
+  const { data, isLoading, error } = useGetPodcastList(filters);
+
+  const onChange = (value: string) => {
+    setFilters(value)
+  }
+
+  return (
+    <LayoutDefault isLoading={isLoading}>
+      {error ? (
+        <div>
+          Error while get the Podcast List
+        </div>)
+        :
+        (<Container cards={data} onChange={onChange} />)
+      }
+    </LayoutDefault>
   );
 }
 
