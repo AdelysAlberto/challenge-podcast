@@ -6,6 +6,7 @@ In this challenge I solve the proposed statement, which consists of creating a w
 Below, I leave you the link to visit a small mockup that I have made in figma to use as a design guide.
 [Figma Mockup](https://www.figma.com/file/sXI0I2XZaDtfcHmUze2e82/Challenge-PODCAST?node-id=0%3A1)
 
+In this project I have applied clean architecture, and other good practices to maintain a clean code.
 
 **Readme sections**
 
@@ -14,7 +15,6 @@ Below, I leave you the link to visit a small mockup that I have made in figma to
 - [Configuration](#configuration)
 - [Commands](#commands)
 - [Architecture](#architecture)
-- [Endpoints](#endpoints)
 
 ### Exchange provider:
 For this challenge, I was instructed to use an itunes url and obtain the list of the top 100 podcasts, and additionally read the details of the podcasts through xml calls and then transform them into json format.
