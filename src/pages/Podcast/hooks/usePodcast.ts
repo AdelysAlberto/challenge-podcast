@@ -4,5 +4,5 @@ import { getPodcastDetail } from '../services/podcast.service';
 
 
 export const useGetPodcastDetails = (id: string) => {
-  return useQuery('podcastsDetails', () => getPodcastDetail(id));
+  return useQuery(['podcastsDetails'], () => getPodcastDetail(id));
 };

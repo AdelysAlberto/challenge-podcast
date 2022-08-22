@@ -7,9 +7,10 @@ import { IPodcast } from "../interfaces/podcast.interface"
  * @description: object-joining all episodes of a podcast
  */
 const parseEpisodes = (payload: any) => {
+
   return Object.fromEntries(payload.map((t: any) => {
     if (t.elements) {
-      return [t.name, t.elements[0].text]
+      return [t.name, t.elements[0].text || t.elements[0].cdata]
     } else {
       return [t.name, t.attributes]
     }
@@ -29,8 +30,6 @@ const parsePodcastDetail = (payload: any) => {
     episodes: []
   };
 
-
-
   // eslint-disable-next-line array-callback-return
   payload.elements[0].elements[0].elements.map((pod: any) => {
 
@@ -40,7 +39,7 @@ const parsePodcastDetail = (payload: any) => {
 
     pod.name === "image" && (podcast['image'] = pod.elements[0].elements[0].text)
 
-    pod.name === 'description' && (podcast['description'] = pod.elements[0].text)
+    pod.name === 'description' && (podcast['description'] = pod.elements[0].text || pod.elements[0].cdata)
 
     pod.name === 'itunes:subtitle' && (podcast['subtitle'] = pod.elements[0].text)
 
@@ -51,6 +50,8 @@ const parsePodcastDetail = (payload: any) => {
       ]
     }
   })
+
+
   return podcast
 }
 

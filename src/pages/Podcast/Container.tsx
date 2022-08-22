@@ -1,11 +1,9 @@
 import { FC } from 'react'
-import { IPodcast, TFunction, TFunctionTIme } from './interfaces/podcast.interface';
+import { IPodcast } from './interfaces/podcast.interface';
 import styles from './styles/podcast.module.scss';
-
-const Container: FC<{ data: IPodcast, parseTime: TFunctionTIme, parseDate: TFunction }> = ({
+import { Outlet } from 'react-router-dom';
+const Container: FC<{ data: IPodcast }> = ({
   data,
-  parseTime,
-  parseDate
 }) => {
 
   return (
@@ -21,36 +19,16 @@ const Container: FC<{ data: IPodcast, parseTime: TFunctionTIme, parseDate: TFunc
 
           <div className={styles.podcast__description}>
             <span className='fw-600'>Description:</span>
-            <span>{data?.description}</span>
+            <span dangerouslySetInnerHTML={{ __html: data?.description as string }} />
           </div>
         </div>
       </div>
 
       <div className={styles.details}>
-
-        <div className={`${styles.details__count} fw-600 font-medium`}>Episodes {data?.episodes.length}</div>
-        <div className={styles.episodes}>
-          <div className={styles.episodes__header}>
-            <div className={styles.episodes__title}>Title</div>
-            <div className={styles.episodes__date}>Date</div>
-            <div className={styles.episodes__duration}>Duration</div>
-          </div>
-
-          <div className={styles.episodes__data}>
-            {data?.episodes.map((episode, key) => (
-              <div key={key} className={styles.episodes__episode}>
-                <div className={styles.episodes__title}> {episode.title} </div>
-                <div className={styles.episodes__date}>{parseDate(episode.pubDate!)}</div>
-                <div className={styles.episodes__duration}>{parseTime(episode['itunes:duration']!)}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Outlet context={{ data }} />
 
       </div>
     </div>
-
-
 
   );
 }

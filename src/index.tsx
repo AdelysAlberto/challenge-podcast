@@ -17,19 +17,18 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-
       cacheTime: configEnv.cache_time, // 24 hours
     }
   }
 });
 
 root.render(
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient} >
-      <App />
-      <ReactQueryDevtools />
-    </QueryClientProvider>
-  </BrowserRouter>
+
+  <QueryClientProvider client={queryClient} >
+    <App />
+    <ReactQueryDevtools />
+  </QueryClientProvider>
+
 );
 
 reportWebVitals();

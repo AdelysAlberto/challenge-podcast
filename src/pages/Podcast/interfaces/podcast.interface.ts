@@ -1,5 +1,6 @@
 export type IPodcastEpisodes = {
   title?: string,
+  cdata?: string,
   description?: string,
   pubDate?: string,
   'itunes:episodeType'?: string,
@@ -26,5 +27,3 @@ export interface IPodcast {
   episodes: IPodcastEpisodes[]
 }
 
-export type TFunction = (k: string) => string;
-export type TFunctionTIme = (k: number) => string;

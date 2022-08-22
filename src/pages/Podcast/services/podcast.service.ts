@@ -19,7 +19,6 @@ const getPodcastDetail = async (id: string): Promise<IPodcast> => {
   const { data } = await request.get(configEnv.podcast_details(id));
 
   const parsed = JSON.parse(data.contents);
-
   const feedUrl = parsed.results[0].feedUrl;
 
   return getFeed(feedUrl);
