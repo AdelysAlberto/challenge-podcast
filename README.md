@@ -24,9 +24,10 @@ A main page was designed that contains the 100 podcasts, where you can use a fil
 And finally navigate to the playback of the selected episode
 
 ## **Stack - Libraries**:
-- **Node.js v16.17**
+- **Nodejs v16.17**
 - React/Typescript
 - React Query
+- Axios
 - xml-js
 - Sass
 - express.js
@@ -57,6 +58,11 @@ REACT_APP_CACHE_TIME=86400000
 
 ## **Commands**:
 These are several useful commands to run the project.
+
+- Install Dependecies:
+```console
+adelysbelen@challenge:~$ npm install
+```
 
 - Run unit test:
 ```console
