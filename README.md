@@ -70,7 +70,7 @@ adelysbelen@challenge:~$ npm start
 
 - Build app:
 ```console
-adelysbelen@challenge:~$ npm build
+adelysbelen@challenge:~$ npm run build:client
 ```
 
 - Run server app:
