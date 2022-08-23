@@ -14,6 +14,7 @@
     "@types/react-query": "^1.2.9",
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
+    "ejs": "^3.1.8",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,9 +28,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:client": "tsc --project ./tsconfig.server.json --outDir ./dist",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:server": "node ./dist/server.js"
   },
   "eslintConfig": {
     "extends": [
