@@ -10,21 +10,36 @@ import Home from "../../pages/Home";
 import Podcast from "../../pages/Podcast";
 import Episode from "../../pages/Podcast/components/Episodes";
 import DetailEpisode from "../../pages/Podcast/components/DetailsEpisodes";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools';
+import configEnv from "../../utilities/config.utility";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      cacheTime: configEnv.cache_time, // 24 hours
+    }
+  }
+});
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/podcast/" element={<Podcast />}  >
-          <Route path=":id">
-            <Route element={<Episode />} index />
-            <Route path="episode/:id" element={<DetailEpisode />} />
-          </Route>
+    <QueryClientProvider client={queryClient} >
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/podcast/" element={<Podcast />}  >
+            <Route path=":id">
+              <Route element={<Episode />} index />
+              <Route path="episode/:id" element={<DetailEpisode />} />
+            </Route>
 
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 };
 
