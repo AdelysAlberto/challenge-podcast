@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:client": "tsc --project ./tsconfig.server.json --outDir ./dist",
+    "build:client": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:server": "node ./dist/server.js"
