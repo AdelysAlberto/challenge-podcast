@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react"
 import Header from "../components/Header";
 
-import styles from './default.module.scss';
+import styles from './styles.module.scss';
 
 const LayoutDefault: FC<{ children: ReactNode, isHome?: boolean, isLoading?: boolean }> = ({ children, isHome = false, isLoading }) => {
   return (
