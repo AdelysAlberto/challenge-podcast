@@ -1,28 +1,26 @@
 {
+  "include": [
+    "server",
+    "src/**/*.ts",
+    "declarations.d.ts"
+  ],
   "compilerOptions": {
     "target": "ES6",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "ES6"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+      "es6",
+      "dom"
+    ], // use JavaScript ES6 & DOM API
+    "target": "es6", // compile to ES6
+    "jsx": "react-jsx", // compile JSX to React.createElement statements for SSR
+    "allowJs": true, // allow import of JS modules
+    // enable strict type checking
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src",
-    "server/html.ts"
-  ],
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
+  }
 }

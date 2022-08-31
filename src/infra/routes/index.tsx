@@ -10,9 +10,11 @@ import Home from "../../pages/Home";
 import Podcast from "../../pages/Podcast";
 import Episode from "../../pages/Podcast/components/Episodes";
 import DetailEpisode from "../../pages/Podcast/components/DetailsEpisodes";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from 'react-query/devtools';
-import configEnv from "../../utilities/config.utility";
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+//react query
+import { QueryClient, QueryClientProvider } from 'react-query';
+import configEnv from '../../utilities/config.utility';
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
 
 import App from './infra/routes';
 
+
 const container = document.getElementById('root');
+const root = hydrateRoot(container!, <App />);
 
-hydrateRoot(container!, <App />);
+root.render(<App />);
 
-reportWebVitals();
